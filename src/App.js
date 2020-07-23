@@ -20,6 +20,12 @@ const Boton = styled.button`
   padding: 1rem 3rem;
   font-size:2rem;
   border:2px solid black;
+  transition: backgroup-size .8s ease;
+
+  :hover {
+    cursor: pointer;
+    background-size: 400px;
+  }
 `;
 
 function App() {
@@ -35,8 +41,9 @@ function App() {
     const frase = await api.json();
     guardarFrase(frase[0]);
   }
+  //carga la primera vez de esta forma
   useEffect(() => {
-
+    consultarAPI();
   },[])
 
   return (
